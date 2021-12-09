@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest04.html</title>
+<script type="text/javascript">
+
+	var myJsonObject4 =
+	{
+		"test" : function()
+		{
+			alert("Method Test~!!!")
+		}
+		/* 기능에 대한 이름이 test인 것이다. */
+	}
+
+</script>
+</head>
+<body>
+
+<!-- 이 테스트 중요!!! -->
+
+	<input type="button" value="click1" onclick="myJsonObejct4.test">
+	<!-- X -->
+	
+	<input type="button" value="click2" onclick="alert(myJsonObject4.test)">
+	<!-- 
+		function()
+			{
+				alert("Method Test~!!!")
+			}
+	-->
+	<input type="button" value="click3" onclick="alert(myJsonObject4.test())">
+	
+	<!-- 『eval()』 : 변수를 자바스크립트 함수처럼 사용할 수 있도록 해주느 함수
+					  정적인 문자열을 동적인 코드 형식으로 처리 -->
+	<input type="button" value="click4" 
+	onclick="eval('a=' + myJsonObject4.test); a();">
+	<!-- a라는 변수에 이름이 test의 속성값인 메소드를 담겠다는 것이고, 
+		 a변수를 기능적으로 실행시킨다. -->
+	
+</body>
+</html>

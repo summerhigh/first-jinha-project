@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JsonTest05.html</title>
+<script type="text/javascript">
+
+	var myJsonObejct5 = 
+	{
+		"test" : function(args)
+		{
+			alert("Method Test : " + args);
+		}
+			
+	}
+	
+	var t = myJsonObject5.test;
+	/* var t = myJsonObject5.test(args); */
+
+</script>
+</head>
+<body>
+
+<!-- 자바 : 콜바이밸류 , 콜바이레퍼런스
+	 제이슨이 콜바이레퍼런스라고 생각하면 쉽다.
+	 참조관계를 가져온다. 
+	 모두 다 주소값으로 되어있고 그걸 가져온다고 생각 -->
+	 
+	 <!-- 이 테스트 망했음 -->
+
+<form>
+
+	<input type="button" value="click1" onclick="t('Bumsuk')">
+	<!-- Method Test : Bumsuk -->
+
+	<input type="button" value="click2"
+	 onclick="eval('var=a' + myJsonObject5.test); a('Bumsuk')">
+	<!-- Method Test : Bumsuk -->
+	 
+	 <input type="button" value="click3"
+	 onclick="eval('('+  myJsonObject5.test+ ')(\Bumsuk\')')">
+	<!-- myJsonObject5.test('Bumsuk') -->
+	<!-- Method Test : Bumsuk -->
+	
+</form>
+
+
+</body>
+</html>
